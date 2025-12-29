@@ -34,12 +34,12 @@ markdown
 Copy code
 
 **Output**
-main.py
-auth.py
-models.py
-crud.py
-Dockerfile
-README.md
+- main.py
+- auth.py
+- models.py
+- crud.py
+- Dockerfile
+- README.md
 
 markdown
 Copy code
