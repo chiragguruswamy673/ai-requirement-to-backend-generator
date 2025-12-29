@@ -1,0 +1,17 @@
+from fastapi import APIRouter, HTTPException
+from datetime import datetime, timedelta
+import jwt
+
+router = APIRouter()
+
+SECRET_KEY = "secret"
+ALGORITHM = "HS256"
+
+@router.post("/login")
+def login(username: str, password: str):
+    token = jwt.encode(
+        {"sub": username, "exp": datetime.utcnow() + timedelta(hours=1)},
+        SECRET_KEY,
+        algorithm=ALGORITHM
+    )
+    return {"access_token": token}

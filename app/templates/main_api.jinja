@@ -1,0 +1,20 @@
+from fastapi import FastAPI
+
+app = FastAPI()
+
+{% if "JWT authentication" in features %}
+from auth import router as auth_router
+app.include_router(auth_router)
+{% endif %}
+
+{% for api in apis %}
+@app.{{ api.method.lower() }}("{{ api.path }}")
+def {{ api.path.replace("/", "").replace("-", "_") }}():
+    return {"message": "{{ api.path }} endpoint"}
+{% endfor %}
+
+try:
+    from crud import router as crud_router
+    app.include_router(crud_router)
+except:
+    pass

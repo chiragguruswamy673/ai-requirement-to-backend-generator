@@ -1,0 +1,15 @@
+# {{ project_name }}
+
+This service was **auto-generated** from a product requirement using an
+AI-assisted backend generation system.
+
+## Features
+{% for feature in features %}
+- {{ feature }}
+{% endfor %}
+
+## How to Run (Docker)
+
+```bash
+docker build -t {{ project_name }} .
+docker run -p 8000:8000 {{ project_name }}

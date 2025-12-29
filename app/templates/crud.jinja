@@ -1,0 +1,12 @@
+from fastapi import APIRouter
+from models import {{ entity }}
+
+router = APIRouter()
+
+@router.post("/{{ entity.lower() }}")
+def create_{{ entity.lower() }}():
+    return {"message": "{{ entity }} created"}
+
+@router.get("/{{ entity.lower() }}s")
+def list_{{ entity.lower() }}s():
+    return []
